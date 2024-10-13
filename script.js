@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
     function addTask() {
         const taskText = taskInput.value.trim();
-        if (taskText === "") {
+        if (taskText == "") {
             alert("Please enter a task.");
             return;
         }
@@ -26,9 +26,10 @@ document.addEventListener("DOMContentLoaded",function(){
         taskList.appendChild(listItem);
         taskInput.value = "";
     }
+
     addButton.addEventListener('click', addTask);
     taskInput.addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
+        if (event.key == 'Enter') {
             addTask();
         }
     });
