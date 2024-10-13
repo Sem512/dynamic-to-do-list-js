@@ -18,17 +18,17 @@ document.addEventListener("DOMContentLoaded",function(){
         removeButton.textContent = "Remove";
         removeButton.className = 'remove-btn';
 
-        removeButton.onclick = function() {
-            taskList.removeChild(listItem);
-        };
+        removeButton.addEventListener("onclick",function(){
 
         listItem.appendChild(removeButton);
         taskList.appendChild(listItem);
         taskInput.value = "";
+    })
+
     }
 
-    addButton.addEventListener('click', addTask);
-    taskInput.addEventListener('keypress', function(event) {
+    addButton.addEventListener("onclick", addTask);
+    taskInput.addEventListener("keypress", function(event) {
         if (event.key == 'Enter') {
             addTask();
         }
