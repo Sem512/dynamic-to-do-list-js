@@ -38,35 +38,34 @@ document.addEventListener('DOMContentLoaded', function() {
     function saveTasks() {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
-            function addTask() {
-                const taskText = taskInput.value.trim();
+            
+    function addTask() {
+        const taskText = taskInput.value.trim();
 
-                if (taskText === "") {
-                    alert("Please enter a task.");
-                    return;
-                }
+        if (taskText === "") {
+            alert("Please enter a task.");
+            return;
+        }
 
-                const listItem = document.createElement('li');
-                listItem.textContent = taskText;
-                listItem.classList.add('task-item'); 
+        tasks.push(taskText);
+        createTaskElement(taskText);
+        saveTasks();
 
-                const removeButton = document.createElement('button');
-                removeButton.textContent = "Remove";
-                removeButton.classList.add('remove-btn'); 
+        taskInput.value = "";
+    }
 
-                removeButton.onclick = function() {
-                    taskList.removeChild(listItem);
-                };
+    function removeTask(taskText) {
+        tasks = tasks.filter(task => task !== taskText);
+        saveTasks();
+    }
 
-                listItem.appendChild(removeButton);
-                taskList.appendChild(listItem);
-                taskInput.value = "";
-            }
+    addButton.addEventListener('click', addTask);
 
-            addButton.addEventListener('click', addTask);
-            taskInput.addEventListener('keypress', function(event) {
-                if (event.key === 'Enter') {
-                    addTask();
-                }
-            });
+    taskInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            addTask();
+        }
+    });
+
+    loadTasks();
         });
