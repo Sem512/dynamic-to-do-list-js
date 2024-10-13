@@ -17,12 +17,13 @@ document.addEventListener("DOMContentLoaded",function(){
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
         removeButton.className = "remove-btn";
-        document.getElementsByClassName("remove-btn").addEventListener("click",function(){    
-        taskInput.value = "";
+        removeButton.addEventListener("click",function(){    
+            taskList.removeChild(listItem);
     })
 
     taskList.appendChild(listItem);
     listItem.appendChild(removeButton);
+    taskInput.value = "";
     }
 
     addButton.addEventListener("click", addTask);
