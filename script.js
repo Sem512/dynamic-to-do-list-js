@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded",function(){
         const listItem = document.createElement('li');
         listItem.textContent = taskText;
 
-        const removeButton = document.createElement('button');
+        const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
-        removeButton.className = 'remove-btn';
-        removeButton.addEventListener("click",function(){    
+        removeButton.className = "remove-btn";
+        document.getElementsByClassName("remove-btn").addEventListener("click",function(){    
         taskInput.value = "";
     })
 
